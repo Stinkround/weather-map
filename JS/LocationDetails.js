@@ -19,9 +19,7 @@ async function getLocation() {
     }`
   );
 
-  console.log(
-    `https://nominatim.openstreetmap.org/reverse?format=json&lat=${location.latitude}&lon=${location.longitude}`
-  );
+ 
   var weatherData = await weatherResponse.json();
 
   // Fetch city name and state for the current location
