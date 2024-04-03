@@ -20,13 +20,7 @@ async function getLocation() {
   );
 
   console.log(
-    `https://api.open-meteo.com/v1/forecast?latitude=${
-      location.latitude
-    }&longitude=${
-      location.longitude
-    }&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,cloud_cover,surface_pressure,wind_speed_10m,wind_direction_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=${
-      Intl.DateTimeFormat().resolvedOptions().timeZone
-    }`
+    `https://nominatim.openstreetmap.org/reverse?format=json&lat=${location.latitude}&lon=${location.longitude}`
   );
   var weatherData = await weatherResponse.json();
 
@@ -38,6 +32,7 @@ async function getLocation() {
 
   // Add the weather data and city name and state to the location object
   location.weather = weatherData.current;
+  location.address = `${geocodeData.name}, ${geocodeData.address.house_number} ${geocodeData.address.road}`;
   location.city = geocodeData.address.city || geocodeData.address.town;
   location.state = geocodeData.address.state;
 
