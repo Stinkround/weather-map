@@ -60,13 +60,15 @@ async function createMap() {
   var marker = L.marker([location.latitude, location.longitude]).addTo(map);
 
   // Bind a popup to the marker with the weather data
-  marker
+ marker
     .bindPopup(
       `<h3>Your Location:</h3>` +
-        `<h4>${location.city}, ${location.state}</h4>` +
-        `<br> <strong style="text-decoration: underline; cursor: pointer;" onclick="window.open('/weather-map/Weather/weather.html', '_blank')">More Info..</strong>`
+        `<br>` +
+        `<h4> ${location.address}, ${location.city}, ${location.state}</h4>` +
+        `<br> <strong style="text-decoration: underline; cursor: pointer;" onclick="window.open('/weather/weather.html', '_blank')">More Info..</strong>`
     )
     .openPopup();
+
 
   //add main layer
 
