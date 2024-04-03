@@ -28,7 +28,8 @@ function getDirection(degree) {
 async function showWeather() {
   var location = await getLocation();
 
-  addElement("h1", `Weather for ${location.city}, ${location.state}:`);
+ addElement("h1", `Weather for ${location.address}:`);
+  addElement("h2", `${location.city}, ${location.state}`);
   addElement("br", ``);
 
   addElement("h3", `Precipitation: ${location.weather.precipitation} inches`);
