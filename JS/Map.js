@@ -65,7 +65,7 @@ async function createMap() {
       `<h3>Your Location:</h3>` +
         `<br>` +
         `<h4> ${location.address}, ${location.city}, ${location.state}</h4>` +
-        `<br> <strong style="text-decoration: underline; cursor: pointer;" onclick="window.open('/weather-map/weather/weather.html', '_blank')">More Info..</strong>`
+        `<br> <strong style="text-decoration: underline; cursor: pointer;" onclick="window.open('/weather-map/Weather/weather.html', '_blank')">More Info..</strong>`
     )
     .openPopup();
 
