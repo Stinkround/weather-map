@@ -2,6 +2,7 @@ var radarLayer;
 var map;
 
 import { getLocation } from "./LocationDetails.js";
+import { layerControls } from './Layercontrols.js';
 
 function addWeatherLayer(map) {
   radarLayer = L.tileLayer
@@ -57,6 +58,10 @@ async function createMap() {
     5
   );
 
+
+  layerControls.addLayers(map);
+  layerControls.addDefault(map);
+
   var marker = L.marker([location.latitude, location.longitude]).addTo(map);
 
   // Bind a popup to the marker with the weather data
@@ -72,10 +77,7 @@ async function createMap() {
 
   //add main layer
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution:
-      '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  }).addTo(map);
+
 
   //add marker where location of user is
   // Make a request to the Open-Meteo API
